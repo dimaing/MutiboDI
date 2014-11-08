@@ -20,6 +20,7 @@ public class Film {
 	private List<String> producers;
 	private List<String> stars;
 	private List<String> pictures;
+	private List<String> trailers;
 	
 
 	public Film() {
@@ -61,6 +62,26 @@ public class Film {
 		this.producers = producers;
 	}
 
+	public List<String> getStars() {
+		return stars;
+	}
+	public void setStars(List<String> stars) {
+		this.stars = stars;
+	}
+
+	public List<String> getPictures() {
+		return pictures;
+	}
+	public void setPictures(List<String> pictures) {
+		this.pictures = pictures;
+	}
+
+	public List<String> getTrailers() {
+		return trailers;
+	}
+	public void setTrailers(List<String> trailers) {
+		this.pictures = trailers;
+	}
 	
 	public long getId() {
 		return id;
@@ -78,7 +99,7 @@ public class Film {
 	@Override
 	public int hashCode() {
 		// Google Guava provides great utilities for hashing
-		return Objects.hashCode(name, url, duration);
+		return Objects.hashCode(names.get(0));
 	}
 
 	/**
@@ -91,9 +112,7 @@ public class Film {
 		if (obj instanceof Film) {
 			Film other = (Film) obj;
 			// Google Guava provides great utilities for equals too!
-			return Objects.equal(name, other.name)
-					&& Objects.equal(url, other.url)
-					&& duration == other.duration;
+			return Objects.equal(names.get(0), other.names.get(0));
 		} else {
 			return false;
 		}

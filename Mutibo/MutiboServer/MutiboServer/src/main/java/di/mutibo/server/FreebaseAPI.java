@@ -1,4 +1,6 @@
 package di.mutibo.server;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
@@ -18,6 +20,7 @@ import com.jayway.jsonpath.ReadContext;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 public class FreebaseAPI {
 
 	private static final String API_KEY="AIzaSyAUCTVH6icbsvJ9QkJ5jJ6GNIi1Obi5zPM";
@@ -49,7 +52,7 @@ public class FreebaseAPI {
 	    "}],";
 	
 	
-	private static final String QUERY_CANNES ="[{"+
+	public static final String QUERY_CANNES ="[{"+
 			  "\"id\": null,"+
 			  "\"name\": null,"+
 			  "\"type\": \"/film/film_festival_event\","+
@@ -71,8 +74,31 @@ public class FreebaseAPI {
 			    "\"sort\": \"opening_date\","+
 			    "\"limit\": 10"+
 			"}]";
+
+	public static final String QUERY_VENICE ="[{"+
+			  "\"id\": null,"+
+			  "\"name\": null,"+
+			  "\"type\": \"/film/film_festival_event\","+
+			  " \"festival\": \"Venice Film Festival\","+
+			  "\"first:opening_date>\": \"####\","+
+			  "\"opening_date\": null,"+
+			  "\"films\": [{"+FILM_JSON+
+			    "\"/award/award_winning_work/awards_won\": [{"+
+			    "  \"award\": [{"+
+				"\"name\": null,"+
+				"\"id\": null,"+
+		        "\"disciplines_or_subjects|=\": [\"Film\"],"+
+				"\"optional\": false"+
+			      "}],"+
+			      "\"optional\": false"+
+			    "}]"+
+			  "}],"+
+			    "\"sort\": \"opening_date\","+
+			    "\"limit\": 10"+
+			"}]";
 			
-	private static final String QUERY_VENICE ="[{"+
+
+	private static final String QUERY_VENICEX ="[{"+
 			  "\"id\": null,"+
 			  "\"name\": null,"+
 			  "\"type\": \"/film/film_festival_event\","+
@@ -112,6 +138,61 @@ public class FreebaseAPI {
 			  "}],"+
 			  "\"limit\": 300"+
 			"}]";
+	
+	
+	@SuppressWarnings("unchecked")
+	public static List<Film> getFims(String mql) 
+			throws IOException, ParseException{
+	
+		  ArrayList<Film> films = new ArrayList<Film>();	
+	      
+		  HttpTransport httpTransport = new NetHttpTransport();
+	      HttpRequestFactory requestFactory = httpTransport.createRequestFactory();
+	      JSONParser parser = new JSONParser();
+	      
+	      GenericUrl url = new GenericUrl(FREEBASE_API_URL);
+	      
+	      url.put("query", setParams(mql));
+	      url.put("key", API_KEY);
+	      HttpRequest request = requestFactory.buildGetRequest(url);
+	      HttpResponse httpResponse = request.execute();
+	      JSONObject response = (JSONObject)parser.parse(httpResponse.parseAsString());
+	      JSONArray results = (JSONArray)response.get("result");
+	      
+	      for (Object result : results) {
+	    	  List<String> festival = JsonPath.read(result,"$..name");
+	    	  System.out.println(festival.get(0).toString());
+	    	  for(int i=0;i<10;i++){
+	    		  
+	    		  try{
+	    			  Film film = new Film();	  
+		    		  String filmTag = String.format("$..films[%s].", i);
+		    		  film.setNames((List<String>)JsonPath.read(result,filmTag+"name"));
+
+		    		  film.setTaglines((List<String>)JsonPath.read(result,filmTag+"tagline..value"));
+		    		  
+		    		  film.setProducers((List<String>)JsonPath.read(result,filmTag+"executive_produced_by..name"));		
+	
+		    		  film.setDirectors((List<String>)JsonPath.read(result,filmTag+"directed_by..name"));
+	
+		    		  film.setStars((List<String>)JsonPath.read(result,filmTag+"starring..actor"));
+		    		  
+		    		  film.setTrailers((List<String>)JsonPath.read(result,filmTag+"starring..actor"));
+		    		  
+		    		  film.setPictures((List<String>)JsonPath.read(result,filmTag+"/common/topic/image..id"));
+		    		  //https://usercontent.googleapis.com/freebase/v1/image/<image ID>?maxwidth=225&maxheight=225&mode=fillcropmid
+		    		  films.add(film);
+	    		  }
+	    		  catch(PathNotFoundException ex){
+	    			  break;
+	    		  }
+	    		  
+	    	  }
+	      }
+		return films;
+	}
+	
+	
 	
 	public static void Sample(){
 	

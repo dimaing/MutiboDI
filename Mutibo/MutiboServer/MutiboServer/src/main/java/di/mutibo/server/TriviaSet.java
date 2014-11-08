@@ -16,6 +16,7 @@ import com.google.common.base.Objects;
 public class TriviaSet {
 	private List<Film> _films = new CopyOnWriteArrayList<Film>();  
 	private String _selectionCriteria = null;
+	
 	public List<Film> getFilms(){
 		
 		return _films;
