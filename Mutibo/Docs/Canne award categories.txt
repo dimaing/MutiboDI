@@ -1,0 +1,186 @@
+{
+  "status": "200 OK",
+  "result": [
+    
+
+{
+      "mid": "/m/02wkmx",
+      "id": "/en/palme_dor",
+      "name": "Palme d'Or",
+      "notable": {
+        "name": "Award category",
+        "id": "/award/award_category"
+      },
+      "lang": "en",
+      "score": 17.861916
+    },
+    
+
+
+{
+      "mid": "/m/02vqxqn",
+      "id": "/en/cannes_grand_prix",
+      "name": "Cannes Grand Prix",
+      "notable": {
+        "name": "Award category",
+        "id": "/award/award_category"
+      },
+      "lang": "en",
+      "score": 13.697673
+    },
+    
+
+
+{
+      "mid": "/m/02wwsh8",
+      "id": "/en/jury_prize",
+      "name": "Cannes Jury Prize",
+      "notable": {
+        "name": "Award category",
+        "id": "/award/award_category"
+      },
+      "lang": "en",
+      "score": 11.897466
+    },
+    
+
+
+{
+      "mid": "/m/02z13jg",
+      "id": "/en/best_actor_award",
+      "name": "Cannes Best Actor Award",
+      "notable": {
+        "name": "Award category",
+        "id": "/award/award_category"
+      },
+      "lang": "en",
+      "score": 11.730356
+    },
+    
+
+{
+      "mid": "/m/02y_j8g",
+      "id": "/en/best_actress_award",
+      "name": "Cannes Best Actress Award",
+      "notable": {
+        "name": "Award category",
+        "id": "/award/award_category"
+      },
+      "lang": "en",
+      "score": 11.368372
+    },
+    
+
+{
+      "mid": "/m/02vng__",
+      "id": "/en/camera_dor",
+      "name": "Cam\u00e9ra d'Or",
+      "notable": {
+        "name": "Award category",
+        "id": "/award/award_category"
+      },
+      "lang": "en",
+      "score": 10.898098
+    },
+    
+
+{
+      "mid": "/m/02wypbh",
+      "id": "/en/best_director_award",
+      "name": "Cannes Best Director Award",
+      "notable": {
+        "name": "Award category",
+        "id": "/award/award_category"
+      },
+      "lang": "en",
+      "score": 10.212234
+    },
+    
+
+{
+      "mid": "/m/04lh2qr",
+      "id": "/en/prize_of_the_ecumenical_jury",
+      "name": "Prize of the Ecumenical Jury",
+      "notable": {
+        "name": "Award",
+        "id": "/award/award"
+      },
+      "lang": "en",
+      "score": 9.402889
+    },
+    
+
+{
+      "mid": "/m/0468g4r",
+      "id": "/en/cannes_film_festival_for_best_screenplay",
+      "name": "Cannes Film Festival Award for Best Screenplay",
+      "notable": {
+        "name": "Award category",
+        "id": "/award/award_category"
+      },
+      "lang": "en",
+      "score": 9.061175
+    },
+    
+
+
+{
+      "mid": "/m/09phtz",
+      "id": "/en/as_dor",
+      "name": "As d'Or",
+      "notable": {
+        "name": "Award",
+        "id": "/award/award"
+      },
+      "lang": "en",
+      "score": 9.008629
+    }
+  ],
+  "cursor": 10,
+  "cost": 9,
+  "hits": 29
+}
+
+
+
+
+
+"mid": "/m/02wkmx",
+      "id": "/en/palme_dor",
+      "name": "Palme d'Or"
+"mid": "/m/02vqxqn",
+      "id": "/en/cannes_grand_prix",
+      "name": "Cannes Grand Prix"
+"mid": "/m/02wwsh8",
+      "id": "/en/jury_prize",
+      "name": "Cannes Jury Prize"
+"mid": "/m/02z13jg",
+      "id": "/en/best_actor_award",
+      "name": "Cannes Best Actor Award"
+"mid": "/m/02y_j8g",
+      "id": "/en/best_actress_award",
+      "name": "Cannes Best Actress Award"
+"mid": "/m/02wypbh",
+      "id": "/en/best_director_award",
+      "name": "Cannes Best Director Award",
+
+"mid": "/m/04lh2qr",
+      "id": "/en/prize_of_the_ecumenical_jury",
+      "name": "Prize of the Ecumenical Jury"
+"mid": "/m/0468g4r",
+      "id": "/en/cannes_film_festival_for_best_screenplay",
+      "name": "Cannes Film Festival Award for Best Screenplay"
+"mid": "/m/09phtz",
+      "id": "/en/as_dor",
+      "name": "As d'Or"
+
+
+
+
+
+
+
+
+
+
+
