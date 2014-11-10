@@ -20,6 +20,8 @@ public class MutiboSvcTest {
 	@Test
 	public void testTriviaSetRequest() throws Exception {
 		TriviaSet set = _mutiboSvc.getTriviaSet();
+		assertTrue(set.getOddFilms()!=null &&  !set.getOddFilms().isEmpty());
+		assertTrue(set.getSimFilms()!=null &&  !set.getSimFilms().isEmpty());
 	}
 
 }
