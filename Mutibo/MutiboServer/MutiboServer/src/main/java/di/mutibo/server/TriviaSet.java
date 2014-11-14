@@ -4,45 +4,42 @@
 package di.mutibo.server;
 
 import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
 
-
-import com.google.common.base.Objects;
 
 /**
  * @author Dmitry I 
  *
  */
 public class TriviaSet {
-	private List<Film> _simFilms = null;
-	private List<Film> _oddFilms = null;
+	private List<Film> simFilms = null;
+	private List<Film> oddFilms = null;
 	
-	private String _selectionCriteria = null;
+	private String selectionCriteria = null;
 	
 	public List<Film> getSimFilms(){
-		return _simFilms;
+		return this.simFilms;
 	}
 
 	public  void setSimFilms(List<Film> value){
-		_simFilms =  value;
+		this.simFilms =  value;
 	}
 
 	
 	public List<Film> getOddFilms(){
-		return _oddFilms;
+		return this.oddFilms;
 	}
 
 	public  void setOddFilms(List<Film> value){
-		_oddFilms =  value;
+		this.oddFilms =  value;
 	}
 
 	
 	public String getSelectionCriteria(){
-		return _selectionCriteria;
+		return this.selectionCriteria;
 	}
 	
 	protected void setSelectionCriteria(String value){	
-		_selectionCriteria=value;
+		this.selectionCriteria=value;
 	}
 
 }
